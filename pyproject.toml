@@ -1,0 +1,14 @@
+[project]
+name = "python-learn"
+version = "0.1.0"
+description = "Learning python"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.6.3",
+    "matplotlib>=3.11.1",
+    "notebook>=7.6.2",
+    "numpy>=2.5.2",
+    "pandas>=3.0.5",
+]
