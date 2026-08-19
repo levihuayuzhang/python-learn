@@ -13,3 +13,6 @@ uv.lock
 
 *.pickle
 *.pkl
+
+*.png
+*.jpg
