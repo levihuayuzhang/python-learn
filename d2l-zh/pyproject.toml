@@ -1,0 +1,22 @@
+[project]
+name = "d2l-zh"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Huayu Zhang", email = "zhanghuayu.dev@gmail.com" }]
+requires-python = ">=3.9"
+dependencies = [
+    "d2l",
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
+]
+
+[project.scripts]
+d2l-zh = "d2l_zh:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+d2l = { git = "https://github.com/d2l-ai/d2l-zh.git" }

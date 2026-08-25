@@ -1,21 +1,16 @@
 [project]
 name = "python-learn"
 version = "0.1.0"
-description = "Learning python"
+description = "learning python"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = [
-    "aiohttp>=3.14.3",
-    "beautifulsoup4>=4.15.0",
-    "jupyter>=1.1.1",
-    "jupyterlab>=4.6.3",
-    "lxml>=6.1.1",
-    "matplotlib>=3.11.1",
-    "notebook>=7.6.2",
-    "numpy>=2.5.2",
-    "pandas>=3.0.5",
-    "requests>=2.34.2",
-    "scikit-learn>=1.9.0",
-    "scipy>=1.18.0",
-    "seaborn>=0.13.2",
+
+[tool.uv.workspace]
+members = [
+    "pytorch-learn",
+    "data-analysis",
+    "multiprocessing",
+    "sklearn",
+    "web-scraping",
+    "threading",
 ]
