@@ -16,3 +16,13 @@ uv.lock
 
 *.png
 *.jpg
+*.jpeg
+*.gif
+*.txt
+
+data
+dataset
+dataloader
+
+logs
+

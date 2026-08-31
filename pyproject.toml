@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "learning python"
 readme = "README.md"
 requires-python = ">=3.14"
+dependencies = [
+]
 
 [tool.uv.workspace]
 members = [

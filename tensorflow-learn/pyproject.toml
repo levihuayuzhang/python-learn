@@ -6,7 +6,9 @@ readme = "README.md"
 authors = [{ name = "Huayu Zhang", email = "zhanghuayu.dev@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = [
+    "numpy>=2.5.2",
     "tensorflow>=2.21.0",
+    # "tf-nightly"
 ]
 
 [project.scripts]
