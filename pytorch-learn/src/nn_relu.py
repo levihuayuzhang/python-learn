@@ -1,46 +1,43 @@
 import torch
 import torchvision
 from torch import nn
-from torch.nn import Conv2d
+from torch.nn import ReLU, Sigmoid
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
+input = torch.tensor([[1, -0.5], [-1, 3]])
+output = torch.reshape(input, (-1, 1, 2, 2))
+print(output.shape)
+
 dataset = torchvision.datasets.CIFAR10(
-    "dataset", train=False, transform=torchvision.transforms.ToTensor(), download=True
+    "dataset", train=False, download=True, transform=torchvision.transforms.ToTensor()
 )
+
 dataloader = DataLoader(dataset, batch_size=64)
 
 
 class Ass(nn.Module):
     def __init__(self):
-        super(Ass, self).__init__()
-        self.conv1 = Conv2d(
-            in_channels=3, out_channels=6, kernel_size=3, stride=1, padding=0
-        )
+        super().__init__()
+        self.relu1 = ReLU()
+        self.sigmoid1 = Sigmoid()
 
-    def forward(self, x):
-        x = self.conv1(x)
-        return x
+    def forward(self, input):
+        output = self.sigmoid1(input)
+        return output
 
 
 ass = Ass()
-# print(ass)
+# output = ass(input)
+# print(output)
 
 writer = SummaryWriter("logs")
-
 step = 0
 for data in dataloader:
     imgs, targets = data
-    output = ass(imgs)
-    print(imgs.shape)
-    print(output.shape)
-
     writer.add_images("input", imgs, step)
-
-    output = torch.reshape(output, (-1, 3, 30, 30))
+    output = ass(imgs)
     writer.add_images("output", output, step)
-
     step = step + 1
-
 
 writer.close()
