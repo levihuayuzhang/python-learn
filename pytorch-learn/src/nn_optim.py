@@ -34,10 +34,15 @@ class Ass(nn.Module):
 loss = nn.CrossEntropyLoss()
 ass = Ass()
 optim = torch.optim.SGD(ass.parameters(), lr=0.01)
-for data in dataloader:
-    imgs, targets = data
-    outputs = ass(imgs)
-    result_loss = loss(outputs, targets)
-    optim.zero_grad()
-    result_loss.backward()
-    optim.step()
+for epoch in range(20):
+    running_loss = 0.0
+    for data in dataloader:
+        imgs, targets = data
+        outputs = ass(imgs)
+        result_loss = loss(outputs, targets)
+        optim.zero_grad()
+        result_loss.backward()
+        optim.step()
+        # print(result_loss)
+        running_loss = running_loss + result_loss
+    print(running_loss)
